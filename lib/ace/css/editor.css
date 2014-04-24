@@ -1,3 +1,7 @@
+.ace_identifier {
+    color: blue;
+}
+
 .ace_editor {
     position: relative;
     overflow: hidden;
