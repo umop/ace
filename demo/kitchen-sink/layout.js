@@ -10,7 +10,6 @@ var UndoManager = require("ace/undomanager").UndoManager;
 var Renderer = require("ace/virtual_renderer").VirtualRenderer;
 var Editor = require("ace/editor").Editor;
 var MultiSelect = require("ace/multi_select").MultiSelect;
-var Linking = require("ace/linking").Linking;
 
 dom.importCssString("\
 splitter {\
@@ -118,7 +117,6 @@ exports.singleLineEditor = function(el) {
     renderer.setStyle("ace_one-line");
     var editor = new Editor(renderer);
     new MultiSelect(editor);
-    new Linking(editor);
     editor.session.setUndoManager(new UndoManager());
 
     editor.setShowPrintMargin(false);
