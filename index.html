@@ -9,8 +9,11 @@
         <link href="./doc/site/style.css" rel="stylesheet" type="text/css" />
         <link href="./doc/site/images/favicon.ico" rel="icon" type="image/x-icon" />
 
-        <script src="./build/src-min/ace.js"></script>
-        <script src="./build/src-min/ext-static_highlight.js"></script>
+        <script src="./build/src/ace.js"></script>
+        <script src="./build/src/ext-static_highlight.js"></script>
+        <!--[if lt IE 9]>
+            <script src="./build/src/ext-old_ie.js"></script>
+        <![endif]-->
     </head>
     <body>
         <a href="http://github.com/ajaxorg/ace">
@@ -65,7 +68,7 @@
                                 and is the successor of the Mozilla Skywriter (Bespin) project.
                             </p>
                             
-                                <div id="ace_editor_demo" style="opacity:0">/**
+                                <pre id="ace_editor_demo" style="opacity:0">/**
  * In fact, you're looking at ACE right now. Go ahead and play with it!
  *
  * We are currently showing off the JavaScript mode. ACE has support for 45
@@ -80,14 +83,14 @@ function add(x, y) {
 
 var addResult = add(3, 2);
 console.log(addResult);
-</div>
+</pre>
                             <p id="embed_link"><a href="#nav=embedding">Learn how to embed this in your own site</a></p>
                             <p class="highlight_note">Looking for a more full-featured demo? Check out the
                                 <a href="build/kitchen-sink.html" target="_blank">kitchen sink</a>.
                             </p>
                             <h2>Features</h2>
                             <ul class="content-list">
-                                <li><a href="http://pcwalton.blogspot.com/2010/11/syntax-highlighting-specification.html">Syntax highlighting</a> for over 60 languages (TextMate/Sublime Text<em>.tmlanguage</em> files can be imported)</li>
+                                <li><a href="http://pcwalton.blogspot.com/2010/11/syntax-highlighting-specification.html">Syntax highlighting</a> for over 110 languages (TextMate/Sublime Text<em>.tmlanguage</em> files can be imported)</li>
                                 <li>Over 20 themes (TextMate/Sublime Text <em>.tmtheme</em> files can be imported)</li>
                                 <li>Automatic indent and outdent</li>
                                 <li>An optional command line</li>
@@ -140,7 +143,7 @@ console.log(addResult);
                             <h1>Embedding Ace in Your Site</h1>
                             <p>Ace can be easily embedded into a web page. Get prebuilt version of ace from 
                             <a href="https://github.com/ajaxorg/ace-builds/">ace-builds</a> repository and use the code below:</p>
-                                <div id="embedded_ace_code" style="opacity:0">&lt;!DOCTYPE html>
+                                <pre id="embedded_ace_code" style="opacity:0">&lt;!DOCTYPE html>
 &lt;html lang="en">
 &lt;head>
 &lt;title>ACE in Action&lt;/title>
@@ -168,7 +171,7 @@ console.log(addResult);
     editor.getSession().setMode("ace/mode/javascript");
 &lt;/script>
 &lt;/body>
-&lt;/html></div>
+&lt;/html></pre>
                             <p>Now check out the <a href="#nav=howto">How-To Guide</a> for instructions on
                                 common operations, such as setting a different language mode or
                                 getting the contents from the editor.
@@ -758,6 +761,11 @@ if (match) {
                                     <a href="http://www.codecademy.com/">Codecademy</a>
                                 </li>
                                 <li>
+                                    <img src="http://textor.houfeng.net/images/textor.png"
+                                        style="position: relative; left: 13px; top: -3px; width: 75px" />
+                                    <a href="http://textor.houfeng.net/">Textor</a>
+                                </li>
+                                <li>
                                     <img src="doc/site/images/rstudio_logo_64.png"
                                         style="left: 19px; top: 2px;" />
                                     <a href="http://rstudio.org/">RStudio</a>
@@ -793,7 +801,7 @@ if (match) {
                                     <a href="http://plnkr.co/edit/">Plunker</a>
                                 </li>
                                 <li>
-                                    <img src="http://zedapp.org/content/images/2013/Nov/Icon-1.png" style="left: -1px;top: -20px;width: 103px;">
+                                    <img src="http://zedapp.s3.amazonaws.com/uploads/2014/02/zed-small.png" style="left: -1px;top: -20px;width: 103px;">
                                     <a href="http://zedapp.org">Zed</a>
                                 </li>
                                 <li>
@@ -952,7 +960,7 @@ if (match) {
                                     <a href="https://www.decor-tab-creator.com">Decor</a>
                                 </li>
                                 <li>
-                                    <img src="https://2.gravatar.com/avatar/cca33939e02e36446015d57b01868d2d?d=https%3A%2F%2Fidenticons.github.com%2F260479af5073adc51195677756073de5.png&r=x&s=100"
+                                    <img src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iOTVweCIgaGVpZ2h0PSIxMTZweCIgdmlld0JveD0iLTAuMTc0IC0wLjMwNCA5NSAxMTYiPg0KPHBvbHlnb24gZmlsbD0iIzMzMzMzMyIgcG9pbnRzPSIzNy45MzMsMTE1LjM5MyAyMi42NTcsMTAwLjExNiA2My44OSw1OC44ODIgMjAuMjg5LDE1LjI3NiAzNS41NjcsMCA5NC40NDMsNTguODgyIj48L3BvbHlnb24+DQo8cG9seWdvbiBmaWxsPSIjM0ZBOUY1IiBwb2ludHM9IjI3LjQ1Nyw4NC42MzMgMCw1Ny4xNTQgMjYuMzk3LDMwLjc2IDM1LjY5Miw0MC4wNTggMTguNTksNTcuMTYgMzYuNzU3LDc1LjMzOSI+PC9wb2x5Z29uPg0KPC9zdmc+DQo='
                                         style="left: 12px; width: 79px;top: -18px;">
                                     <a href="http://www.divshot.com/">Divshot</a>
                                 </li>
@@ -969,10 +977,6 @@ if (match) {
                                     <a href="http://multiPlay.io/">MultiPlay.io</a>
                                 </li>
                                 <li>
-                                    <div class="text-logo" style="font-size: 18px;margin-left: -3px;">Codeshare.io</div>
-                                    <a href="http://codeshare.io">Codeshare.io</a>
-                                </li>
-                                <li>
                                     <div class="text-logo" style="font-size: 23px;">Runnable</div>
                                     <a href="http://runnable.com">Runnable</a>
                                 </li>
@@ -984,11 +988,6 @@ if (match) {
                                     <img src="http://joshnuss.github.io/mruby-web-irb/images/favicon.png"
                                         style="left: 4px; width: 90px;top: -17px;">
                                     <a href="http://joshnuss.github.io/mruby-web-irb/">Mruby-web-irb</a>
-                                </li>
-                                <li>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAAA8CAYAAACHHY8HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfdBQETIiXg/sIKAAAAGnRFWHRTb2Z0d2FyZQBQYWludC5ORVQgdjMuNS4xMDD0cqEAAAFpSURBVHhe7dstTgRBEAbQTVgCKDTBInCgUJwAQwgEAQK1hjtwCAR3IASB2ENwCg6AJAFBws83jmCnMy3qbfLJ7qp+NVkxnZnN/AgQIECAAAECBAgQINBWYLFYrCXHyUWxnOS86201J9wtzd8nP0XzNCF121IZ2HvRoQ0P61dbzQl3S/OPhQe3nJC6banhfz45S66K5Tzn3WiraTcCBAgQIECAAAECBAgQIECAAAECBAgQINBLIG+995KHZFksR73Mm9TNsF6K3rF95txbTRB7bJLm34oObrjV3u1h3qRmmr9OPgoO764JYM9NMrR5slosPcnVJkCAAAECBAgQIECAAAECBAgQIEBgpEDeZ24nhwUzH0nXb3mGdVD448bnnH2ln/6Iymn8tuD1z99Pp/dH8PVbmqFdJt9Fh/eac2/20x9ZOc2fJjcFszOSznICBAgQIECAAAECBAgQIECAAAECBAgQIECAwD+BX9K9KZrlGQTqAAAAAElFTkSuQmCC"
-                                        style="left: 0px; width: 110px;top: 9px;">
-                                    <a href="http://www.radide.com/">RAD Ide</a>
                                 </li>
                                 <li>
                                     <div class="text-logo" style="margin-left:0px;">Codiqa</div>
